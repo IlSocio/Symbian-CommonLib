@@ -1,0 +1,25 @@
+
+
+RESOURCE DIALOG r_longtext_dialog {
+	flags = EAknDialogGenericQueryFlags;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items = {
+		DLG_LINE {
+			type = EAknCtPopupHeadingPane;
+			id = EAknMessageQueryHeaderId;
+			itemflags = EEikDlgItemNonFocusing;
+			control = AVKON_HEADING 
+				{
+				label = "header";
+				};
+		},
+		DLG_LINE {
+			type = EAknCtMessageQuery;
+			id = EAknMessageQueryContentId;
+			control = AVKON_MESSAGE_QUERY 
+				{
+				};
+		}
+	};
+}
+

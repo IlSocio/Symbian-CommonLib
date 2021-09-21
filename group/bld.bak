@@ -1,0 +1,38 @@
+/*
+============================================================================
+ Name		: bld.inf
+ Author	  : Marco Bellino
+ Copyright   : Guardian-Mobile.com
+ Description : This file provides the information required for building the
+				whole of a CommonLib.
+============================================================================
+*/
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+..\inc\rstringbuf.h \epoc32\include\FuzzyByte\rstringbuf.h
+..\inc\FileUtils.h \epoc32\include\FuzzyByte\FileUtils.h
+..\inc\Utils.h \epoc32\include\FuzzyByte\Utils.h
+..\inc\StringUtils.h \epoc32\include\FuzzyByte\StringUtils.h
+..\inc\AsyncWaiter.h \epoc32\include\FuzzyByte\AsyncWaiter.h
+..\inc\LongRunTask.h \epoc32\include\FuzzyByte\LongRunTask.h
+..\inc\GuiUtils.h \epoc32\include\FuzzyByte\GuiUtils.h
+..\inc\httpengine.h \epoc32\include\FuzzyByte\httpengine.h
+..\inc\httpsession.h \epoc32\include\FuzzyByte\httpsession.h
+..\inc\logging.h \epoc32\include\FuzzyByte\logging.h
+..\inc\notes.h \epoc32\include\FuzzyByte\notes.h
+..\inc\iapManager.h \epoc32\include\FuzzyByte\iapManager.h
+..\inc\inboxattachment.h \epoc32\include\FuzzyByte\inboxattachment.h
+..\inc\phone.h \epoc32\include\FuzzyByte\phone.h
+..\inc\progressbar.h \epoc32\include\FuzzyByte\progressbar.h
+..\inc\pubsubobserver.h \epoc32\include\FuzzyByte\pubsubobserver.h
+..\inc\repoutils.h \epoc32\include\FuzzyByte\repoutils.h
+..\inc\resreader.h \epoc32\include\FuzzyByte\resreader.h
+..\inc\settings.h \epoc32\include\FuzzyByte\settings.h
+..\inc\timeouttimer.h \epoc32\include\FuzzyByte\timeouttimer.h
+..\inc\Obex\MyObexClient.h \epoc32\include\FuzzyByte\MyObexClient.h
+
+PRJ_MMPFILES
+CommonLib.mmp

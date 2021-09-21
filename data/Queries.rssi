@@ -1,0 +1,28 @@
+
+
+RESOURCE DIALOG r_ask_text
+{
+	flags = EGeneralQueryFlags;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	items =
+	{
+	DLG_LINE
+		{
+		type = EAknCtQuery;
+		id = EGeneralQuery;
+		control = AVKON_DATA_QUERY
+			{
+			layout = EDataLayout;
+			label  = "Title";
+
+			control = EDWIN
+				{
+				width = 5;
+				lines = 1;
+				};
+			};
+		}
+	};
+}
+
+

@@ -1,0 +1,19 @@
+
+NAME CMNL
+
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <eikon.rh>
+#include <appinfo.rh>
+
+
+RESOURCE RSS_SIGNATURE
+	{
+	}
+RESOURCE TBUF 
+	{ 
+	buf = "CMN";
+	}
+
+#include "Queries.rssi"
+#include "Notes.rssi"

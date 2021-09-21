@@ -1,0 +1,74 @@
+/*
+ ============================================================================
+ Name		: XmlParser.h
+ Author	  : 
+ Version	 : 1.0
+ Copyright   : Your copyright notice
+ Description : CXmlParser declaration
+ ============================================================================
+ */
+
+#ifndef XMLPARSER_H
+#define XMLPARSER_H
+
+// INCLUDES
+#include <e32std.h>
+#include <e32base.h>
+#include <f32file.h>  //Link against efsrv.lib 
+#include <xml\contenthandler.h> // for MContentHandler
+#include <xml\parser.h> // for CParser
+
+#include <FuzzyByte\LongRunTask.h>
+#include <FuzzyByte\LineReader.h>
+
+using namespace Xml;
+
+class MXmlNotifier
+    {
+    public: // New functions
+        virtual void ParsingCompleteL(TAny* src) = 0;
+    };
+
+
+/**
+ *  CXmlParser
+ * 
+ */
+class CXmlParser : public CBase, MLongTaskCallBack
+	{
+public:
+	// Constructors and destructor
+
+	/**
+	 * Destructor.
+	 */
+	~CXmlParser();
+
+	// Two-phased constructor.
+	static CXmlParser* NewL(MXmlNotifier& notif, MContentHandler& aHandler);
+
+	// Two-phased constructor.
+	static CXmlParser* NewLC(MXmlNotifier& notif, MContentHandler& aHandler);
+
+public:
+    void StartParsingWithAoL(RFs& aFs, const TDesC& aFileName );
+    void CancelL();
+    
+private:
+	virtual void DoOneRoundL();
+
+	// C++ constructor
+	CXmlParser(MXmlNotifier& notif);
+
+	// Second-phase constructor
+	void ConstructL(MContentHandler& aHandler);
+
+private:
+	CFileLineReader*	 iLineReader;
+	CLongTaskAO*		 iLongTask;
+	MXmlNotifier&	 	 iNotifier;
+    CParser*             iParser;
+    HBufC8*				 iBuffer;
+	};
+
+#endif // XMLPARSER_H

@@ -1,0 +1,46 @@
+/*
+============================================================================
+ Name		: CommonLib.mmp
+ Author	  : Marco Bellino
+ Copyright   : Guardian-Mobile.com
+ Description : This is the project specification file for CommonLib.
+============================================================================
+*/
+
+TARGET		  CommonLib.lib
+TARGETTYPE	  lib
+UID			 0
+
+USERINCLUDE	 ..\inc ..\inc\obex
+SYSTEMINCLUDE \epoc32\include \epoc32\include\ecom  \epoc32\include\mmf\plugin
+APP_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH	  ..\src
+SOURCE		AsyncWaiter.cpp GuiUtils.cpp HttpEngine.cpp HttpSession.cpp IapManager.cpp InboxAttachment.cpp Notes.cpp Phone.cpp ProgressBar.cpp PubSubObserver.cpp RStringBuf.cpp RepoUtils.cpp ResReader.cpp StringUtils.cpp Utils.cpp timeouttimer.cpp  ScheduleTimer.cpp FuzProducts.cpp
+SOURCE 		UpdateLock.cpp Contacts.cpp
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif
+SOURCEPATH ..\src\Obex
+SOURCE MyObexClient.cpp MyObexServiceSearcher.cpp btservicesearcher.cpp
+SOURCEPATH ..\src
+SOURCE FileUtils.cpp FuzWebRegister.cpp FuzWebUpdate.cpp FuzBase64Codec.CPP
+SOURCEPATH ..\src\obex
+SOURCE sdpattributeparser.cpp
+
+SOURCEPATH ..\src
+SOURCE longruntask.cpp GPSPosition.cpp aes.cpp processes.cpp
+SOURCEPATH ..\data
+START RESOURCE CommonLib.rss
+	TARGETPATH \resource\apps
+	HEADER
+END
+SOURCEPATH ..\src
+SOURCE queries.cpp ImageReader.cpp ImageResizer.cpp BitmapsCache.cpp ThumbProvider.cpp ThumbProviderCached.cpp ThumbManager.cpp SoundPlayer.cpp Cache.cpp HttpEngineSync.cpp SendAsSms.cpp linereader.cpp
+
+ 
+MACRO _LOGGING
+//MACRO APP_LAYER_SYSTEMINCLUDE
+SOURCEPATH ..\src
+SOURCE XmlParser.cpp XmlParserUtils.cpp CallsMonitor.cpp KeyCapturer.cpp SmsMtmMonitor.cpp FileLogger.cpp SettingsFile.cpp SimNotifier.cpp

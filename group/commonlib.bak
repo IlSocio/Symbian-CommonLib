@@ -1,0 +1,26 @@
+/*
+============================================================================
+ Name		: CommonLib.mmp
+ Author	  : Marco Bellino
+ Copyright   : Guardian-Mobile.com
+ Description : This is the project specification file for CommonLib.
+============================================================================
+*/
+
+TARGET		  CommonLib.lib
+TARGETTYPE	  lib
+UID			 0
+
+USERINCLUDE	 ..\inc ..\inc\obex
+SYSTEMINCLUDE   \epoc32\include \epoc32\include\ecom
+
+SOURCEPATH	  ..\src
+SOURCE		  AsyncWaiter.cpp CommonLib.cpp EmptyAO.cpp GuiUtils.cpp HttpEngine.cpp HttpSession.cpp IapManager.cpp InboxAttachment.cpp Notes.cpp Phone.cpp ProgressBar.cpp PubSubObserver.cpp RStringBuf.cpp RepoUtils.cpp ResReader.cpp StringUtils.cpp Utils.cpp timeouttimer.cpp FuzUtils.cpp
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif
+SOURCEPATH ..\src\Obex
+SOURCE MyObexClient.cpp MyObexServiceSearcher.cpp btservicesearcher.cpp
+SOURCEPATH ..\src
+SOURCE FileUtils.cpp logging.cpp settings.cpp FuzWebRegister.cpp FuzWebUpdate.cpp FuzBase64Codec.CPP

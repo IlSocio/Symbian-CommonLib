@@ -1,0 +1,65 @@
+/*
+============================================================================
+ Name		: bld.inf
+ Author	  : Marco Bellino
+ Copyright   : Guardian-Mobile.com
+ Description : This file provides the information required for building the
+				whole of a CommonLib.
+============================================================================
+*/
+
+PRJ_PLATFORMS
+WINSCW GCCE
+
+PRJ_EXPORTS 
+..\data\IapManager.rsg \epoc32\include\FuzzyByte\IapManager.rsg
+..\inc\LineReader.h \epoc32\include\FuzzyByte\LineReader.h
+..\inc\SendAsSms.h \epoc32\include\FuzzyByte\SendAsSms.h
+..\inc\AES.h \epoc32\include\FuzzyByte\AES.h
+..\inc\SoundPlayer.h \epoc32\include\FuzzyByte\SoundPlayer.h
+..\inc\ThumbManager.h \epoc32\include\FuzzyByte\ThumbManager.h
+..\inc\ThumbProviderCached.h \epoc32\include\FuzzyByte\ThumbProviderCached.h
+..\inc\ThumbProvider.h \epoc32\include\FuzzyByte\ThumbProvider.h
+..\inc\BitmapsCache.h \epoc32\include\FuzzyByte\BitmapsCache.h
+..\inc\ImageReader.h \epoc32\include\FuzzyByte\ImageReader.h
+..\inc\ImageResizer.h \epoc32\include\FuzzyByte\ImageResizer.h
+..\inc\GPSPosition.h \epoc32\include\FuzzyByte\GPSPosition.h
+..\inc\rstringbuf.h \epoc32\include\FuzzyByte\rstringbuf.h
+..\inc\LongRunTask.h \epoc32\include\FuzzyByte\LongRunTask.h
+..\inc\Processes.h \epoc32\include\FuzzyByte\Processes.h
+..\inc\FileUtils.h \epoc32\include\FuzzyByte\FileUtils.h
+..\inc\Utils.h \epoc32\include\FuzzyByte\Utils.h
+..\inc\StringUtils.h \epoc32\include\FuzzyByte\StringUtils.h
+..\inc\AsyncWaiter.h \epoc32\include\FuzzyByte\AsyncWaiter.h
+..\inc\GuiUtils.h \epoc32\include\FuzzyByte\GuiUtils.h
+..\inc\httpengine.h \epoc32\include\FuzzyByte\httpengine.h
+..\inc\HttpEngineSync.h \epoc32\include\FuzzyByte\HttpEngineSync.h
+..\inc\httpsession.h \epoc32\include\FuzzyByte\httpsession.h
+..\inc\notes.h \epoc32\include\FuzzyByte\notes.h
+..\inc\queries.h \epoc32\include\FuzzyByte\queries.h
+..\inc\iapManager.h \epoc32\include\FuzzyByte\iapManager.h
+..\inc\inboxattachment.h \epoc32\include\FuzzyByte\inboxattachment.h
+..\inc\phone.h \epoc32\include\FuzzyByte\phone.h
+..\inc\progressbar.h \epoc32\include\FuzzyByte\progressbar.h
+..\inc\pubsubobserver.h \epoc32\include\FuzzyByte\pubsubobserver.h
+..\inc\repoutils.h \epoc32\include\FuzzyByte\repoutils.h
+..\inc\resreader.h \epoc32\include\FuzzyByte\resreader.h
+..\inc\timeouttimer.h \epoc32\include\FuzzyByte\timeouttimer.h
+..\inc\Obex\MyObexClient.h \epoc32\include\FuzzyByte\MyObexClient.h
+..\inc\XmlParser.h \epoc32\include\FuzzyByte\XmlParser.h
+..\inc\CallsMonitor.h \epoc32\include\FuzzyByte\CallsMonitor.h
+..\inc\KeyCapturer.h \epoc32\include\FuzzyByte\KeyCapturer.h
+..\inc\SmsMtmMonitor.h \epoc32\include\FuzzyByte\SmsMtmMonitor.h
+..\inc\FileLogger.h \epoc32\include\FuzzyByte\FileLogger.h
+..\inc\UpdateLock.h \epoc32\include\FuzzyByte\UpdateLock.h
+..\inc\Contacts.h \epoc32\include\FuzzyByte\Contacts.h
+..\inc\SettingsFile.h \epoc32\include\FuzzyByte\SettingsFile.h
+..\inc\SimNotifier.h \epoc32\include\FuzzyByte\SimNotifier.h
+
+..\inc\FuzProducts.h \epoc32\include\FuzzyByte\FuzProducts.h
+..\inc\FuzWebRegister.h \epoc32\include\FuzzyByte\FuzWebRegister.h
+..\inc\FuzWebUpdate.h \epoc32\include\FuzzyByte\FuzWebUpdate.h
+..\inc\FuzBase64Codec.h \epoc32\include\FuzzyByte\FuzBase64Codec.h
+
+PRJ_MMPFILES
+CommonLib.mmp

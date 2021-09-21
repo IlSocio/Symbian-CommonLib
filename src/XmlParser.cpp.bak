@@ -1,0 +1,87 @@
+/*
+ ============================================================================
+ Name		: XmlParser.cpp
+ Author	  : 
+ Version	 : 1.0
+ Copyright   : Your copyright notice
+ Description : CXmlParser implementation
+ ============================================================================
+ */
+
+#include "XmlParser.h"
+#include <UTF.H>
+
+_LIT8( KXmlMimeType, "text/xml" );
+
+CXmlParser::CXmlParser(MXmlNotifier& notif) : iNotifier(notif) 
+	{	
+	}
+
+CXmlParser* CXmlParser::NewLC(MXmlNotifier& notif, MContentHandler& aHandler)
+	{
+	CXmlParser* self = new (ELeave) CXmlParser(notif);
+	CleanupStack::PushL(self);
+	self->ConstructL(aHandler);
+	return self;
+	}
+
+CXmlParser* CXmlParser::NewL(MXmlNotifier& notif, MContentHandler& aHandler)
+	{
+	CXmlParser* self = CXmlParser::NewLC(notif, aHandler);
+	CleanupStack::Pop(); // self;
+	return self;
+	}
+
+void CXmlParser::ConstructL(MContentHandler& aHandler)
+	{
+    iParser = CParser::NewL( KXmlMimeType, aHandler );
+    iLongTask = CLongTaskAO::NewL(*this);
+	}
+
+CXmlParser::~CXmlParser()
+	{
+	CancelL();
+	delete iLongTask;
+    delete iParser;
+	delete iLineReader;
+	delete iBuffer;
+	}
+
+void CXmlParser::CancelL()
+    {
+	iLongTask->Cancel();
+	delete iLineReader;
+	iLineReader = NULL;
+	delete iBuffer;
+	iBuffer = NULL;
+    }
+  
+
+void CXmlParser::StartParsingWithAoL(RFs& aFs, const TDesC& aFileName )
+    {
+     // Remember to cancel any outstanding request first.
+	CancelL();
+ 
+    iLineReader = CFileLineReader::NewL(aFs, aFileName);
+ 
+    // Tell the parser that we are about to parse a XML document.    
+    iParser->ParseBeginL();
+
+    iLongTask->NextRound();
+    }
+ 
+
+void CXmlParser::DoOneRoundL()
+	{
+    if (!iLineReader->NextL())
+    	{
+    	iNotifier.ParsingCompleteL(this);
+    	return;
+    	}
+
+    delete iBuffer;
+    iBuffer = CnvUtfConverter::ConvertFromUnicodeToUtf8L( iLineReader->Current() );
+    
+	iParser->ParseL( *iBuffer );
+	iLongTask->NextRound();
+	}

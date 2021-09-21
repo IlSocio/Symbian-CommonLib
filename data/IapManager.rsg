@@ -1,0 +1,3 @@
+#define R_APN                                     0x44e36003
+#define R_USER                                    0x44e36004
+#define R_PASS                                    0x44e36005
